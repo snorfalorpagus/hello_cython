@@ -1,4 +1,9 @@
-from hello import *
+import coverage
+cov = coverage.Coverage()
+cov.start()
+
+from hello import hello, multiply, MyClass
+from notcython import *
 
 def test_hello():
     hello()
@@ -12,3 +17,14 @@ def test_class():
     assert(c.value == 43)
     c.value = 999
     assert(c.value == 999)
+
+def test_outside_inside():
+    c = MyClass()
+    c.outside()
+
+test_outside_inside()
+
+cov.stop()
+cov.save()
+
+cov.html_report()

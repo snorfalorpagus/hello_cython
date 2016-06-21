@@ -9,6 +9,7 @@ define_macros = []
 compiler_directives['profile'] = True
 compiler_directives['linetrace'] = True
 define_macros.append(('CYTHON_TRACE', '1'))
+define_macros.append(('CYTHON_TRACE_NOGIL', '1'))
 
 
 extensions = [

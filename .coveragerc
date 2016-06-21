@@ -1,3 +1,7 @@
 [run]
 plugins = Cython.Coverage
 omit = *.pxd
+
+[report]
+exclude_lines =
+    pragma: no cover

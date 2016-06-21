@@ -1,3 +1,9 @@
+def woop():
+    return 42
+
+def meow():
+    return 99 # pragma: no cover
+
 def hello():
     print("Hello, World!")
 
@@ -16,8 +22,13 @@ cdef class MyClass:
     property value:
         def __get__(self):
             return self.n
-        def __set__(self, value):
+        def __set__(self, value): # pragma: no cover
             self.n = value
+
+    def outside(self):
+        def inside():
+            return "woop"
+        return inside()
 
 meh = MyClass()
 meh.value = 88
